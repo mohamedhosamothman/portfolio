@@ -57,7 +57,7 @@
     }
 
     [data-theme="dark"] {
-      --light: #0f0f23;
+      --light: #111827;
       --dark: #ffffff;
       --gray-50: #1f2937;
       --gray-100: #374151;
@@ -426,13 +426,14 @@
     }
 
     .hero-image {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       margin: 0 auto 2rem;
       border: 6px solid rgba(255, 255, 255, 0.2);
       box-shadow: var(--shadow-2xl);
       object-fit: cover;
+      object-position: center top;
       position: relative;
     }
 
@@ -452,14 +453,15 @@
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
       font-weight: 900;
       margin-bottom: 1rem;
       line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .hero-subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
       opacity: 0.9;
       margin-bottom: 2rem;
       max-width: 600px;
@@ -557,34 +559,6 @@
       line-height: 1.8;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 1.5rem;
-      background: var(--light);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      display: block;
-    }
-
-    .stat-label {
-      color: var(--gray-600);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
     /* Skills Section */
     .skills-grid {
       display: grid;
@@ -634,6 +608,76 @@
     .skill-tag:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+    }
+
+    /* Certificates Section */
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .certificate-card {
+      background: var(--light);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .certificate-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-1);
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .certificate-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .certificate-content {
+      padding: 1.5rem;
+    }
+
+    .certificate-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .certificate-issuer {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .certificate-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+
+    .certificate-link:hover {
+      color: var(--secondary);
     }
 
     /* Projects Section */
@@ -751,108 +795,6 @@
       color: white;
     }
 
-    /* Experience Section */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--gradient-1);
-      transform: translateX(-50%);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin: 2rem 0;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content {
-      left: 0;
-      text-align: right;
-      padding-right: 2rem;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-      right: 0;
-      text-align: left;
-      padding-left: 2rem;
-    }
-
-    .timeline-content {
-      position: relative;
-      width: 45%;
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow-lg);
-      transition: var(--transition);
-    }
-
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .timeline-date {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--primary);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .timeline-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-company {
-      font-weight: 600;
-      color: var(--gray-700);
-      margin-bottom: 1rem;
-    }
-
-    .timeline-description {
-      color: var(--gray-600);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .timeline::before {
-        left: 1rem;
-      }
-
-      .timeline-item:nth-child(odd) .timeline-content,
-      .timeline-item:nth-child(even) .timeline-content {
-        left: 2rem;
-        right: auto;
-        width: calc(100% - 3rem);
-        text-align: left;
-        padding: 1.5rem;
-      }
-
-      .timeline-date {
-        left: 1rem;
-        transform: translateY(-50%);
-      }
-    }
-
     /* Contact Section */
     .contact {
       background: var(--gradient-1);
@@ -861,22 +803,10 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    .contact-info h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .contact-item {
@@ -915,47 +845,6 @@
 
     .contact-text a:hover {
       text-decoration: underline;
-    }
-
-    .contact-form {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 1.5rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      backdrop-filter: blur(10px);
-      transition: var(--transition);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Footer */
@@ -1094,39 +983,106 @@
         grid-template-columns: 1fr;
       }
 
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .certificates-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* Dark Theme */
+    /* Dark Theme Improvements */
     [data-theme="dark"] body {
       background: var(--gray-900);
       color: var(--gray-100);
     }
 
     [data-theme="dark"] .navbar {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(17, 24, 39, 0.95);
       border-bottom-color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .navbar.scrolled {
+      background: rgba(17, 24, 39, 0.98);
+    }
+
+    [data-theme="dark"] .nav-links {
+      background: rgba(17, 24, 39, 0.98);
+      border-top-color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .nav-logo {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .nav-links a {
+      color: var(--gray-300);
+    }
+
+    [data-theme="dark"] .nav-links a:hover,
+    [data-theme="dark"] .nav-links a.active {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .mobile-menu-btn {
+      color: var(--gray-300);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      background: var(--gray-800);
+      border-color: var(--gray-700);
+      color: var(--gray-300);
     }
 
     [data-theme="dark"] .card,
     [data-theme="dark"] .skill-category,
-    [data-theme="dark"] .project-card {
+    [data-theme="dark"] .project-card,
+    [data-theme="dark"] .certificate-card {
       background: var(--gray-800);
       border-color: var(--gray-700);
     }
 
-    [data-theme="dark"] .timeline-content {
-      background: var(--gray-800);
+    [data-theme="dark"] .section-subtitle {
+      color: var(--gray-400);
+    }
+
+    [data-theme="dark"] .about-content p {
+      color: var(--gray-400);
+    }
+
+    [data-theme="dark"] .project-description {
+      color: var(--gray-400);
+    }
+
+    [data-theme="dark"] .certificate-issuer {
+      color: var(--gray-400);
+    }
+
+    [data-theme="dark"] .project-link {
+      background: var(--gray-700);
+      color: var(--gray-300);
+    }
+
+    [data-theme="dark"] .project-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    [data-theme="dark"] .certificate-image {
+      border-bottom-color: var(--gray-700);
     }
 
     [data-theme="dark"] .contact-item {
       background: rgba(255, 255, 255, 0.05);
     }
 
+    [data-theme="dark"] .contact-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     [data-theme="dark"] .loader {
       background: var(--gray-900);
+    }
+
+    [data-theme="dark"] .footer {
+      background: var(--gray-950);
     }
   </style>
 </head>
@@ -1142,13 +1098,13 @@
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">Mohamed Hosam</a>
+      <a href="#home" class="nav-logo">Mohamed Hosam Othman</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -1170,7 +1126,7 @@
            alt="Mohamed Hosam Othman" 
            class="hero-image floating">
       <h1 class="hero-title">
-        Hi, I'm <span class="gradient-text">Mohamed Hosam</span>
+        Hi, I'm <span class="gradient-text">Mohamed Hosam Othman</span>
       </h1>
       <div class="hero-subtitle">
         <span class="typewriter" id="typewriter">Data Analyst</span>
@@ -1222,25 +1178,6 @@
           </a>
         </div>
       </div>
-
-      <div class="stats-grid">
-        <div class="stat-item scale-in">
-          <span class="stat-number">5+</span>
-          <span class="stat-label">Projects Completed</span>
-        </div>
-        <div class="stat-item scale-in">
-          <span class="stat-number">3+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat-item scale-in">
-          <span class="stat-number">10+</span>
-          <span class="stat-label">Tools Mastered</span>
-        </div>
-        <div class="stat-item scale-in">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Client Satisfaction</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1262,7 +1199,6 @@
             <span class="skill-tag">Microsoft SQL Server</span>
             <span class="skill-tag">Complex Queries</span>
             <span class="skill-tag">Data Modeling</span>
-            <span class="skill-tag">Stored Procedures</span>
             <span class="skill-tag">Query Optimization</span>
           </div>
         </div>
@@ -1277,20 +1213,18 @@
             <span class="skill-tag">Looker Studio</span>
             <span class="skill-tag">DAX Functions</span>
             <span class="skill-tag">Interactive Dashboards</span>
-            <span class="skill-tag">KPI Monitoring</span>
           </div>
         </div>
 
         <div class="skill-category fadeInUp">
           <h3>
             <i class="fas fa-file-excel" style="color: var(--primary);"></i>
-            Excel & Data Processing
+            Excel & Analysis
           </h3>
           <div class="skill-list">
             <span class="skill-tag">Power Query</span>
             <span class="skill-tag">Power Pivot</span>
             <span class="skill-tag">Advanced Formulas</span>
-            <span class="skill-tag">Pivot Tables</span>
             <span class="skill-tag">Data Cleaning</span>
           </div>
         </div>
@@ -1298,42 +1232,109 @@
         <div class="skill-category fadeInUp">
           <h3>
             <i class="fab fa-python" style="color: var(--primary);"></i>
-            Programming & Analysis
+            Programming
           </h3>
           <div class="skill-list">
             <span class="skill-tag">Python</span>
             <span class="skill-tag">Pandas</span>
             <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Matplotlib</span>
             <span class="skill-tag">Data Visualization</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="skill-category fadeInUp">
-          <h3>
-            <i class="fas fa-cogs" style="color: var(--primary);"></i>
-            ETL & Integration
-          </h3>
-          <div class="skill-list">
-            <span class="skill-tag">ETL Workflows</span>
-            <span class="skill-tag">Data Integration</span>
-            <span class="skill-tag">Data Quality</span>
-            <span class="skill-tag">Process Automation</span>
-            <span class="skill-tag">Data Pipelines</span>
+  <!-- Certificates Section -->
+  <section class="section" id="certificates">
+    <div class="container">
+      <h2 class="section-title gradient-text">Certificates & Achievements</h2>
+      <p class="section-subtitle">
+        Professional certifications that validate my expertise in data analysis and technology.
+      </p>
+      
+      <div class="certificates-grid">
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Certificate%20DEPI%20English_1.png" 
+               alt="DEPI Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Data Science & AI Program</h3>
+            <p class="certificate-issuer">Orange Digital Center & AMIT Learning</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Certificate%20DEPI%20English_1.png" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
           </div>
         </div>
 
-        <div class="skill-category fadeInUp">
-          <h3>
-            <i class="fas fa-briefcase" style="color: var(--primary);"></i>
-            Business Systems
-          </h3>
-          <div class="skill-list">
-            <span class="skill-tag">SAP (Basic)</span>
-            <span class="skill-tag">Odoo ERP</span>
-            <span class="skill-tag">Oracle Systems</span>
-            <span class="skill-tag">Risk Analysis</span>
-            <span class="skill-tag">KPI Development</span>
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20Power%20BI%20certificate_1.png" 
+               alt="Power BI Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Introduction to Power BI</h3>
+            <p class="certificate-issuer">Professional Certification</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20Power%20BI%20certificate_1.png" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20DAX%20in%20Power%20BI_1.png" 
+               alt="DAX Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Introduction to DAX in Power BI</h3>
+            <p class="certificate-issuer">Microsoft Power BI</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20DAX%20in%20Power%20BI_1.png" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Intermediate%20SQL_1.png" 
+               alt="Intermediate SQL Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Intermediate SQL</h3>
+            <p class="certificate-issuer">SQL Server Certification</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Intermediate%20SQL_1.png" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20SQL%20certificate_1.png" 
+               alt="Introduction to SQL Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Introduction to SQL</h3>
+            <p class="certificate-issuer">Database Fundamentals</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Introduction%20to%20SQL%20certificate_1.png" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
+          </div>
+        </div>
+
+        <div class="certificate-card scale-in">
+          <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Microsoft%20Machin%20Learning%20CERTIFICATE.jpeg" 
+               alt="Microsoft Machine Learning Certificate" 
+               class="certificate-image">
+          <div class="certificate-content">
+            <h3 class="certificate-title">Microsoft Machine Learning</h3>
+            <p class="certificate-issuer">Microsoft Certification</p>
+            <a href="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/Microsoft%20Machin%20Learning%20CERTIFICATE.jpeg" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              View Certificate
+            </a>
           </div>
         </div>
       </div>
@@ -1341,7 +1342,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="section" id="projects">
+  <section class="section" id="projects" style="background: var(--gray-50);">
     <div class="container">
       <h2 class="section-title gradient-text">Featured Projects</h2>
       <p class="section-subtitle">
@@ -1482,131 +1483,53 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section class="section" id="experience" style="background: var(--gray-50);">
-    <div class="container">
-      <h2 class="section-title gradient-text">Professional Experience</h2>
-      <p class="section-subtitle">
-        My journey in data analysis and business intelligence.
-      </p>
-      
-      <div class="timeline">
-        <div class="timeline-item fadeInLeft">
-          <div class="timeline-content">
-            <h3 class="timeline-title">Data Analyst Intern</h3>
-            <div class="timeline-company">Truvian Intelligence</div>
-            <p class="timeline-description">
-              Conducting real-world data analysis using Excel, SQL, and Power BI. Supporting business decisions through data cleaning, reporting, and visualization tasks in a remote environment.
-            </p>
-          </div>
-          <div class="timeline-date">Jul 2025 - Present</div>
-        </div>
-
-        <div class="timeline-item fadeInRight">
-          <div class="timeline-content">
-            <h3 class="timeline-title">Data Science & AI Trainee</h3>
-            <div class="timeline-company">Orange Digital Center & AMIT Learning</div>
-            <p class="timeline-description">
-              Completed intensive 4-week program (9 hours/day) covering SQL, Python (pandas, NumPy, matplotlib), and EDA. Gained foundational knowledge in supervised ML and applied data analysis to real business cases.
-            </p>
-          </div>
-          <div class="timeline-date">Dec 2024 - Jan 2025</div>
-        </div>
-
-        <div class="timeline-item fadeInLeft">
-          <div class="timeline-content">
-            <h3 class="timeline-title">Remote Data Entry Specialist</h3>
-            <div class="timeline-company">Health Insurance Sector - Saudi Arabia</div>
-            <p class="timeline-description">
-              Managed client data entry from diverse sources (PDFs, WhatsApp, handwritten documents) into structured Excel sheets. Drafted insurance letters and maintained high data accuracy standards.
-            </p>
-          </div>
-          <div class="timeline-date">Jul 2022 - Sep 2023</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
   <section class="section contact" id="contact">
     <div class="container">
-      <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+      <h2 class="section-title" style="color: white;">Let's Connect</h2>
       <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
         Ready to transform your data into actionable insights? Let's discuss your project.
       </p>
       
       <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get In Touch</h3>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-text">
-              <strong>Email</strong><br>
-              <a href="mailto:mohamedhosamothman@gmail.com">mohamedhosamothman@gmail.com</a>
-            </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
           </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="contact-text">
-              <strong>Phone</strong><br>
-              <a href="tel:+201024984060">+20 102 498 4060</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <div class="contact-text">
-              <strong>LinkedIn</strong><br>
-              <a href="https://www.linkedin.com/in/mohamed-hosam-analyst" target="_blank">mohamed-hosam-analyst</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fab fa-github"></i>
-            </div>
-            <div class="contact-text">
-              <strong>GitHub</strong><br>
-              <a href="https://github.com/mohamedhosamothman" target="_blank">mohamedhosamothman</a>
-            </div>
+          <div class="contact-text">
+            <strong>Email</strong><br>
+            <a href="mailto:mohamedhosamothman@gmail.com">mohamedhosamothman@gmail.com</a>
           </div>
         </div>
 
-        <div class="contact-form">
-          <form id="contact-form">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Project Discussion" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <i class="fas fa-paper-plane"></i>
-              Send Message
-            </button>
-          </form>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-text">
+            <strong>Phone</strong><br>
+            <a href="tel:+201024984060">+20 102 498 4060</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-text">
+            <strong>LinkedIn</strong><br>
+            <a href="https://www.linkedin.com/in/mohamed-hosam-analyst" target="_blank">mohamed-hosam-analyst</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-text">
+            <strong>GitHub</strong><br>
+            <a href="https://github.com/mohamedhosamothman" target="_blank">mohamedhosamothman</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1654,7 +1577,6 @@
       initParticles();
       initScrollAnimations();
       initBackToTop();
-      initContactForm();
     });
 
     // Loader
@@ -1925,32 +1847,6 @@
           .from('.hero-title', { opacity: 0, y: 30, duration: 1, ease: 'power2.out' }, '-=0.5')
           .from('.hero-subtitle', { opacity: 0, y: 20, duration: 1, ease: 'power2.out' }, '-=0.3')
           .from('.btn', { opacity: 0, y: 20, duration: 0.8, stagger: 0.2, ease: 'power2.out' }, '-=0.3');
-
-        // Counter animation
-        gsap.utils.toArray('.stat-number').forEach(counter => {
-          const target = counter.textContent;
-          const isPercentage = target.includes('%');
-          const numValue = parseInt(target.replace(/\D/g, ''));
-          
-          gsap.fromTo(counter, 
-            { textContent: 0 },
-            {
-              textContent: numValue,
-              duration: 2,
-              ease: 'power2.out',
-              snap: { textContent: 1 },
-              scrollTrigger: {
-                trigger: counter,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-              },
-              onUpdate: function() {
-                const current = Math.round(this.targets()[0].textContent);
-                counter.textContent = isPercentage ? current + '%' : current + '+';
-              }
-            }
-          );
-        });
       }
     }
 
@@ -1971,46 +1867,6 @@
           top: 0,
           behavior: 'smooth'
         });
-      });
-    }
-
-    // Contact Form
-    function initContactForm() {
-      const form = document.getElementById('contact-form');
-      
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        
-        // Simple validation
-        if (!data.name || !data.email || !data.subject || !data.message) {
-          alert('Please fill in all fields.');
-          return;
-        }
-
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-          alert('Please enter a valid email address.');
-          return;
-        }
-
-        // Simulate form submission
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-          alert('Thank you for your message! I\'ll get back to you soon.');
-          form.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 2000);
       });
     }
 
@@ -2043,7 +1899,7 @@
     });
 
     // Add hover effects for cards
-    document.querySelectorAll('.card, .project-card, .skill-category').forEach(card => {
+    document.querySelectorAll('.card, .project-card, .skill-category, .certificate-card').forEach(card => {
       card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-8px)';
       });
@@ -2089,31 +1945,6 @@
 
       document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
-      });
-    }
-
-    // Add focus trap for mobile menu
-    function trapFocus(element) {
-      const focusableElements = element.querySelectorAll(
-        'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
-      );
-      const firstFocusableElement = focusableElements[0];
-      const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-      element.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab') {
-          if (e.shiftKey) {
-            if (document.activeElement === firstFocusableElement) {
-              lastFocusableElement.focus();
-              e.preventDefault();
-            }
-          } else {
-            if (document.activeElement === lastFocusableElement) {
-              firstFocusableElement.focus();
-              e.preventDefault();
-            }
-          }
-        }
       });
     }
 
