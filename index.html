@@ -3273,4 +3273,276 @@
                                 img.classList.add('fade-in');
                             });
                             
-                            imageObserver.unobserve(img
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '50px'
+                });
+
+                images.forEach(img => imageObserver.observe(img));
+                
+                // Add loading animation CSS
+                if (!document.getElementById('loading-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'loading-styles';
+                    style.textContent = `
+                        @keyframes loading {
+                            0% { background-position: 200% 0; }
+                            100% { background-position: -200% 0; }
+                        }
+                        .fade-in {
+                            animation: fadeInImage 0.6s ease-in-out;
+                        }
+                        @keyframes fadeInImage {
+                            0% { opacity: 0; transform: scale(0.95); }
+                            100% { opacity: 1; transform: scale(1); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+        }
+
+        // ===== PERFORMANCE OPTIMIZATIONS =====
+        function initPerformanceOptimizations() {
+            // Debounce scroll events
+            let scrollTimeout;
+            const originalScrollHandler = window.onscroll;
+            
+            window.addEventListener('scroll', () => {
+                if (scrollTimeout) clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    if (originalScrollHandler) originalScrollHandler();
+                }, 10);
+            }, { passive: true });
+            
+            // Optimize animations for reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.style.setProperty('--transition', 'none');
+                document.documentElement.style.setProperty('--transition-fast', 'none');
+                document.documentElement.style.setProperty('--transition-slow', 'none');
+                document.documentElement.style.setProperty('--transition-bounce', 'none');
+            }
+            
+            // Preload critical images
+            const criticalImages = [
+                'https://raw.githubusercontent.com/mohamedhosamothman/mohamed-portfolio/main/my%20photo.jpg'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+            
+            // Service Worker registration for caching (if available)
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').catch(() => {
+                        // Service worker registration failed, continue without it
+                    });
+                });
+            }
+        }
+
+        // ===== ERROR HANDLING =====
+        window.addEventListener('error', (e) => {
+            console.error('JavaScript error:', e.error);
+            
+            // Hide loader if error occurs during loading
+            const loader = document.getElementById('loader');
+            if (loader && !loader.classList.contains('hidden')) {
+                loader.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+            
+            // Fallback for critical functionality
+            if (e.error && e.error.message.includes('typewriter')) {
+                const typewriter = document.getElementById('typewriter');
+                if (typewriter) {
+                    typewriter.textContent = 'Data Analyst & BI Developer';
+                }
+            }
+        });
+
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            // Close modals with Escape key
+            if (e.key === 'Escape') {
+                const modal = document.querySelector('.image-modal');
+                if (modal) {
+                    modal.querySelector('.modal-close').click();
+                }
+                
+                // Close mobile menu with Escape
+                const mobileMenu = document.getElementById('nav-links');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // Space bar to scroll
+            if (e.key === ' ' && e.target === document.body) {
+                e.preventDefault();
+                window.scrollBy(0, window.innerHeight * 0.8);
+            }
+        });
+
+        // Focus management for mobile menu
+        function trapFocus(element) {
+            const focusableElements = element.querySelectorAll(
+                'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstFocusableElement = focusableElements[0];
+            const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+            element.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusableElement) {
+                            lastFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusableElement) {
+                            firstFocusableElement.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        }
+
+        // Apply focus trap to mobile menu when active
+        const mobileMenu = document.getElementById('nav-links');
+        if (mobileMenu) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (mobileMenu.classList.contains('active')) {
+                            trapFocus(mobileMenu);
+                            mobileMenu.querySelector('a').focus();
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(mobileMenu, { attributes: true });
+        }
+
+        // ===== ANALYTICS AND TRACKING =====
+        // Track scroll depth
+        let maxScrollDepth = 0;
+        window.addEventListener('scroll', () => {
+            const scrollDepth = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (scrollDepth > maxScrollDepth) {
+                maxScrollDepth = scrollDepth;
+                
+                // Track major milestones
+                if ([25, 50, 75, 90].includes(scrollDepth)) {
+                    // Analytics event could be sent here
+                    console.log(`Scroll depth: ${scrollDepth}%`);
+                }
+            }
+        });
+
+        // Track time spent on page
+        let startTime = Date.now();
+        window.addEventListener('beforeunload', () => {
+            const timeSpent = Math.round((Date.now() - startTime) / 1000);
+            console.log(`Time spent: ${timeSpent} seconds`);
+        });
+
+        // ===== ENHANCED USER EXPERIENCE =====
+        // Add smooth hover effects to cards
+        document.querySelectorAll('.skill-category, .project-card, .certificate-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.willChange = 'transform';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.willChange = 'auto';
+            });
+        });
+
+        // Add loading states to external links
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const originalText = link.textContent;
+                link.style.opacity = '0.7';
+                link.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.pointerEvents = 'auto';
+                }, 2000);
+            });
+        });
+
+        // Add context menu for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                
+                // Create custom context menu for images
+                const contextMenu = document.createElement('div');
+                contextMenu.style.cssText = `
+                    position: fixed;
+                    top: ${e.clientY}px;
+                    left: ${e.clientX}px;
+                    background: var(--bg-card);
+                    border: 2px solid var(--primary);
+                    border-radius: var(--radius-lg);
+                    padding: var(--space-sm);
+                    box-shadow: var(--shadow-xl);
+                    z-index: 10000;
+                    font-size: 0.9rem;
+                    min-width: 150px;
+                `;
+                
+                contextMenu.innerHTML = `
+                    <div style="padding: var(--space-xs); cursor: pointer; border-radius: var(--radius);" onclick="this.parentElement.style.display='none'">
+                        <i class="fas fa-expand"></i> View Full Size
+                    </div>
+                `;
+                
+                document.body.appendChild(contextMenu);
+                
+                // Remove context menu after delay or click
+                setTimeout(() => {
+                    if (contextMenu.parentNode) {
+                        contextMenu.parentNode.removeChild(contextMenu);
+                    }
+                }, 3000);
+                
+                document.addEventListener('click', () => {
+                    if (contextMenu.parentNode) {
+                        contextMenu.parentNode.removeChild(contextMenu);
+                    }
+                }, { once: true });
+            });
+        });
+
+        // ===== FINAL INITIALIZATION =====
+        // Ensure all systems are ready
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+            
+            // Trigger any remaining animations
+            document.querySelectorAll('.fade-in-up, .zoom-in').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight) {
+                    el.classList.add('animate');
+                }
+            });
+        }, 1500);
+    </script>
+</body>
+</html>
