@@ -1,349 +1,2162 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Mohamed Hosam Othman – Data Analyst Portfolio</title>
-  <meta name="description" content="Mohamed Hosam – Data Analyst. Turning raw data into actionable insights using dashboards, SQL, Power BI, and Excel." />
-  <meta name="theme-color" content="#0d47a1" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Mohamed Hosam Othman – Data Analyst Portfolio" />
-  <meta property="og:description" content="Turning raw data into actionable insights using dashboards, SQL, Power BI, and Excel." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg" />
-  <meta property="og:url" content="https://adhamosama24.github.io/Adham/" />
-
-  <!-- Preconnect & Font Optimization -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind via CDN with safe config (could be replaced with compiled build later) -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-
-  <!-- GSAP (defer) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-
-  <!-- Lottie -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" defer></script>
-
-  <!-- Structured Data for Person -->
-  <script type="application/ld+json" defer>
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohamed Hosam Othman",
-    "jobTitle": "Data Analyst",
-    "url": "https://adhamosama24.github.io/Adham/",
-    "sameAs": [
-      "https://github.com/mohamedhosamothman",
-      "https://www.linkedin.com/in/mohamed-hosam-analyst"
-    ],
-    "image": "https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg",
-    "description": "Data Analyst transforming complex data into meaningful insights."
-  }
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Hosam Othman | Data Analyst</title>
+  <meta name="description" content="Professional Data Analyst specializing in SQL, Power BI, Python, and advanced data visualization">
+  <meta name="theme-color" content="#667eea">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  
   <style>
     :root {
-      --transition: .3s ease;
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --accent: #f093fb;
+      --dark: #0f0f23;
+      --light: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-dark: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    [data-theme="auto"] {
-      color-scheme: light dark;
+
+    [data-theme="dark"] {
+      --light: #0f0f23;
+      --dark: #ffffff;
+      --gray-50: #1f2937;
+      --gray-100: #374151;
+      --gray-200: #4b5563;
+      --gray-300: #6b7280;
+      --gray-400: #9ca3af;
+      --gray-500: #d1d5db;
+      --gray-600: #e5e7eb;
+      --gray-700: #f3f4f6;
+      --gray-800: #f9fafb;
+      --gray-900: #ffffff;
     }
-    body {
-      font-family: 'Poppins', system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+    * {
       margin: 0;
-      min-height: 100%;
-      background-color: #f5f7fa;
-      transition: background-color var(--transition), color var(--transition);
+      padding: 0;
+      box-sizing: border-box;
     }
-    .dark-mode {
-      background-color: #0f111a;
-      color: #e6e8ff;
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    a { outline: none; }
-    a:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
-    .blinking-cursor { animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .parallax { background-attachment: fixed; background-size: cover; background-position: center; }
-    .gradient-overlay { background: linear-gradient(135deg, rgba(0,123,255,0.85), rgba(0,201,255,0.85)); }
-    .nav-backdrop { backdrop-filter: saturate(180%) blur(12px); }
-    .skip-link {
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background: var(--light);
+      transition: var(--transition);
+      overflow-x: hidden;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--gray-100);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+
+    /* Utilities */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0.75rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
       position: absolute;
-      left: -999px;
-      top: 8px;
-      background: #2563eb;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: var(--transition);
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
       color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      z-index: 100;
-      transition: transform .2s;
+      box-shadow: var(--shadow-lg);
     }
-    .skip-link:focus {
-      left: 8px;
-      transform: none;
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
     }
-    [data-animate] { will-change: transform, opacity; }
-    /* Mobile menu */
-    .menu-btn { display: none; }
-    @media (max-width: 1024px) {
-      .menu-btn { display: block; }
-      #nav-links { display: none; }
-      #nav-links.open { display: flex; flex-direction: column; gap: .75rem; background: rgba(255,255,255,.95); padding: 1rem; position: absolute; right: 1rem; top: 100%; border-radius: .75rem; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.15); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-1);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .gradient-text {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .fadeInUp {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .fadeInLeft {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    .fadeInRight {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        border-top: 1px solid var(--gray-200);
+        transform: translateY(-100vh);
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      z-index: 1001;
+      background: var(--light);
+      border: 2px solid var(--gray-200);
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--gradient-1);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></linearGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad)"/><circle cx="800" cy="300" r="150" fill="url(%23grad)"/><circle cx="600" cy="700" r="120" fill="url(%23grad)"/></svg>');
+      opacity: 0.3;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: white;
+      z-index: 2;
+      position: relative;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-2xl);
+      object-fit: cover;
+      position: relative;
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+      z-index: -1;
+      animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .typewriter {
+      display: inline-block;
+      position: relative;
+    }
+
+    .typewriter::after {
+      content: '|';
+      position: absolute;
+      right: -0.5rem;
+      color: var(--accent);
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-1);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 2rem;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .about-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .about-content p {
+      margin-bottom: 1.5rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--light);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .skill-category h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tag {
+      background: var(--gradient-1);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--light);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+    .project-header {
+      padding: 1.5rem;
+      background: var(--gradient-1);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-header::before {
+      animation: shine 0.5s ease-in-out;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .project-tech span {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+    }
+
+    .project-description {
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .project-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gradient-1);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 2rem 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      left: 0;
+      text-align: right;
+      padding-right: 2rem;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      right: 0;
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .timeline-content {
+      position: relative;
+      width: 45%;
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .timeline-date {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-company {
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-description {
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 1rem;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        left: 2rem;
+        right: auto;
+        width: calc(100% - 3rem);
+        text-align: left;
+        padding: 1.5rem;
+      }
+
+      .timeline-date {
+        left: 1rem;
+        transform: translateY(-50%);
+      }
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--gradient-1);
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(10px);
+    }
+
+    .contact-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-text a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-text a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-1);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Loading Animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: var(--transition);
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-content {
+      text-align: center;
+    }
+
+    .loader-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--gray-200);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loader-text {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] body {
+      background: var(--gray-900);
+      color: var(--gray-100);
+    }
+
+    [data-theme="dark"] .navbar {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom-color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .card,
+    [data-theme="dark"] .skill-category,
+    [data-theme="dark"] .project-card {
+      background: var(--gray-800);
+      border-color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .timeline-content {
+      background: var(--gray-800);
+    }
+
+    [data-theme="dark"] .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="dark"] .loader {
+      background: var(--gray-900);
     }
   </style>
 </head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading...</div>
+    </div>
+  </div>
 
-<body id="body">
-  <!-- Skip to content for accessibility -->
-  <a href="#home" class="skip-link">Skip to content</a>
-
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed w-full p-4 z-50 transition-all">
-    <div class="container mx-auto flex justify-between items-center relative">
-      <a href="#home" class="text-2xl font-bold text-white" aria-label="Go to home">Mohamed Hosam</a>
-      <!-- Hamburger for mobile -->
-      <button aria-label="Toggle menu" id="menu-toggle" class="menu-btn text-white md:hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-400">
-        <svg width="28" height="28" fill="currentColor" aria-hidden="true" viewBox="0 0 24 24">
-          <path id="menu-icon" d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <ul id="nav-links" class="flex space-x-6 text-white md:flex" role="menubar">
-        <li role="none"><a href="#about" class="hover:text-blue-300" role="menuitem" data-section="about">About</a></li>
-        <li role="none"><a href="#skills" class="hover:text-blue-300" role="menuitem" data-section="skills">Skills</a></li>
-        <li role="none"><a href="#projects" class="hover:text-blue-300" role="menuitem" data-section="projects">Projects</a></li>
-        <li role="none"><a href="#contact" class="hover:text-blue-300" role="menuitem" data-section="contact">Contact</a></li>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">Mohamed Hosam</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </nav>
 
-  <!-- Dark Mode Toggle -->
-  <button id="btn-toggle" aria-label="Toggle dark mode" class="fixed top-5 right-5 p-3 bg-white rounded-full shadow-md z-50 focus-visible:ring-2">
-    🌓
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
   </button>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center parallax relative" style="background-image:url('https://source.unsplash.com/1600x900/?data,analysis');">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative text-center text-white px-6 max-w-3xl" data-animate>
-      <!-- Profile Image at Top (lazy, responsive) -->
-      <img
-        src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg"
-        srcset="
-          https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg 1x,
-          https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg 2x
-        "
-        alt="Portrait of Mohamed Hosam"
-        class="w-56 h-56 md:w-64 md:h-64 rounded-full border-4 border-white mx-auto mb-8 shadow-xl object-cover"
-        loading="lazy"
-        width="256"
-        height="256"
-      />
-      <!-- Title with typewriter -->
-      <div class="flex justify-center items-center gap-2">
-        <h1 id="typewriter" class="text-5xl md:text-6xl font-extrabold mb-2"></h1><span class="blinking-cursor text-5xl md:text-6xl">|</span>
+  <section class="hero" id="home">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="https://raw.githubusercontent.com/mohamedhosamothman/portfolio/main/1000126284.jpg" 
+           alt="Mohamed Hosam Othman" 
+           class="hero-image floating">
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Mohamed Hosam</span>
+      </h1>
+      <div class="hero-subtitle">
+        <span class="typewriter" id="typewriter">Data Analyst</span>
       </div>
-      <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Transforming complex data into meaningful insights that drive smarter decisions and impactful strategies.</p>
-      <div class="mt-8 flex flex-wrap gap-4 justify-center">
-        <a href="#projects" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold transition shadow-md" aria-label="View Projects">View Projects</a>
-        <a href="#contact" class="px-6 py-3 bg-transparent border border-white hover:bg-white hover:text-black rounded-full font-semibold transition shadow-md" aria-label="Get in Touch">Get in Touch</a>
+      <p class="hero-subtitle">
+        Transforming complex data into meaningful insights that drive smarter decisions and impactful strategies.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i>
+          View My Work
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fas fa-envelope"></i>
+          Get In Touch
+        </a>
       </div>
-      <!-- Lottie Hero Animation with fallback -->
-      <div id="lottie-hero" class="w-40 h-40 mx-auto mt-12" aria-hidden="true"></div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="min-h-screen container mx-auto py-32 px-6 text-gray-800 dark:text-gray-200" data-animate>
-    <div class="flex flex-col items-center md:flex-row md:items-start md:space-x-12">
-      <div class="w-full">
-        <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">About Me</h2>
-        <p class="mb-6 text-lg">I am a passionate Data Analyst with hands-on experience in data transformation, dashboard development, and reporting.</p>
-        <p class="mb-6 text-lg">Skilled in SQL, Excel (Power Query, Power Pivot, DAX), Python, Power BI, and Looker Studio, I enjoy turning raw data into clear, actionable insights.</p>
-        <p class="mb-6 text-lg">My goal is to help organizations leverage data to improve operations, understand customers, and achieve strategic objectives.</p>
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title gradient-text">About Me</h2>
+      <p class="section-subtitle">
+        Passionate data analyst with a strong background in transforming raw data into actionable business insights.
+      </p>
+      
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+               alt="Data Analysis" 
+               class="floating">
+        </div>
+        <div class="about-content">
+          <h3>Professional Data Analyst</h3>
+          <p>
+            I am a dedicated Data Analyst with hands-on experience in data transformation, dashboard development, and reporting. My expertise spans across SQL, Power BI, Excel advanced features, and Python for comprehensive data analysis.
+          </p>
+          <p>
+            With a Bachelor's degree in Electronics & Communication Engineering and specialized training in data science, I bring a unique technical perspective to data analysis challenges.
+          </p>
+          <p>
+            My goal is to help organizations leverage their data assets to make informed decisions, optimize operations, and drive business growth through compelling data storytelling.
+          </p>
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-download"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item scale-in">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item scale-in">
+          <span class="stat-number">3+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item scale-in">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Tools Mastered</span>
+        </div>
+        <div class="stat-item scale-in">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="min-h-screen gradient-overlay py-32 text-white" data-animate>
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Skills</h2>
-      <ul class="list-disc list-inside space-y-3 text-lg md:text-xl">
-        <li>SQL (Microsoft SQL Server)</li>
-        <li>Power BI & Looker Studio</li>
-        <li>Excel (Power Query, Power Pivot, DAX)</li>
-        <li>Python (Pandas, NumPy, Matplotlib)</li>
-        <li>ETL Workflows & Data Cleaning</li>
-        <li>KPI Dashboards & Reporting</li>
-      </ul>
+  <section class="section" id="skills" style="background: var(--gray-50);">
+    <div class="container">
+      <h2 class="section-title gradient-text">Skills & Expertise</h2>
+      <p class="section-subtitle">
+        A comprehensive toolkit for modern data analysis and business intelligence.
+      </p>
+      
+      <div class="skills-grid">
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fas fa-database" style="color: var(--primary);"></i>
+            Database & SQL
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">Microsoft SQL Server</span>
+            <span class="skill-tag">Complex Queries</span>
+            <span class="skill-tag">Data Modeling</span>
+            <span class="skill-tag">Stored Procedures</span>
+            <span class="skill-tag">Query Optimization</span>
+          </div>
+        </div>
+
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fas fa-chart-bar" style="color: var(--primary);"></i>
+            Business Intelligence
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Looker Studio</span>
+            <span class="skill-tag">DAX Functions</span>
+            <span class="skill-tag">Interactive Dashboards</span>
+            <span class="skill-tag">KPI Monitoring</span>
+          </div>
+        </div>
+
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fas fa-file-excel" style="color: var(--primary);"></i>
+            Excel & Data Processing
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">Power Query</span>
+            <span class="skill-tag">Power Pivot</span>
+            <span class="skill-tag">Advanced Formulas</span>
+            <span class="skill-tag">Pivot Tables</span>
+            <span class="skill-tag">Data Cleaning</span>
+          </div>
+        </div>
+
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fab fa-python" style="color: var(--primary);"></i>
+            Programming & Analysis
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Data Visualization</span>
+          </div>
+        </div>
+
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fas fa-cogs" style="color: var(--primary);"></i>
+            ETL & Integration
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">ETL Workflows</span>
+            <span class="skill-tag">Data Integration</span>
+            <span class="skill-tag">Data Quality</span>
+            <span class="skill-tag">Process Automation</span>
+            <span class="skill-tag">Data Pipelines</span>
+          </div>
+        </div>
+
+        <div class="skill-category fadeInUp">
+          <h3>
+            <i class="fas fa-briefcase" style="color: var(--primary);"></i>
+            Business Systems
+          </h3>
+          <div class="skill-list">
+            <span class="skill-tag">SAP (Basic)</span>
+            <span class="skill-tag">Odoo ERP</span>
+            <span class="skill-tag">Oracle Systems</span>
+            <span class="skill-tag">Risk Analysis</span>
+            <span class="skill-tag">KPI Development</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="min-h-screen container mx-auto py-32 px-6 text-gray-800 dark:text-gray-200" data-animate>
-    <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-8">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Project Card Template (repeated) -->
-      <div class="p-8 rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2 hover:scale-105 bg-white dark:bg-gray-800" aria-label="Project: Pixar Films SQL Analysis">
-        <h3 class="text-2xl font-semibold mb-3">Pixar Films SQL Analysis</h3>
-        <p class="mb-4 text-base">Analysis of Pixar films data using SQL to uncover trends and performance metrics.</p>
-        <a href="https://github.com/mohamedhosamothman/Pixar-Films-SQL-Analysis" target="_blank" rel="noopener" class="inline-block mt-2 underline">View on GitHub</a>
-      </div>
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title gradient-text">Featured Projects</h2>
+      <p class="section-subtitle">
+        Real-world projects showcasing my expertise in data analysis and visualization.
+      </p>
+      
+      <div class="projects-grid">
+        <div class="project-card scale-in">
+          <div class="project-header">
+            <h3 class="project-title">Pixar Films SQL Analysis</h3>
+            <div class="project-tech">
+              <span>SQL Server</span>
+              <span>Data Analysis</span>
+              <span>Business Intelligence</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Comprehensive analysis of Pixar film dataset using advanced SQL queries. Delivered insights into film ROI, award success rates, genre performance trends, and franchise analysis with structured data storytelling.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/mohamedhosamothman/Pixar-Films-SQL-Analysis" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="p-8 rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2 hover:scale-105 bg-white dark:bg-gray-800" aria-label="Project: Branch Services Dashboard">
-        <h3 class="text-2xl font-semibold mb-3">Branch Services Dashboard</h3>
-        <p class="mb-4 text-base">Interactive dashboard built with SQL and Power BI to monitor branch-level service KPIs.</p>
-        <a href="https://github.com/mohamedhosamothman/Branch-Services-Dashboard-Sql-Power-Bi" target="_blank" rel="noopener" class="inline-block mt-2 underline">View on GitHub</a>
-      </div>
+        <div class="project-card scale-in">
+          <div class="project-header">
+            <h3 class="project-title">Branch Services Dashboard</h3>
+            <div class="project-tech">
+              <span>Power BI</span>
+              <span>SQL Server</span>
+              <span>Real-time Data</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Real-time Power BI dashboard connected to SQL Server using DirectQuery. Monitors service distribution across branches, identifies performance gaps, and enables data-driven optimization decisions.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/mohamedhosamothman/Branch-Services-Dashboard-Sql-Power-Bi" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="p-8 rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2 hover:scale-105 bg-white dark:bg-gray-800" aria-label="Project: HR Dashboard in Power BI">
-        <h3 class="text-2xl font-semibold mb-3">HR Dashboard in Power BI</h3>
-        <p class="mb-4 text-base">Comprehensive HR analytics dashboard in Power BI displaying employee metrics and turnover analysis.</p>
-        <a href="https://github.com/mohamedhosamothman/HR-Dashboard-in-Power-BI" target="_blank" rel="noopener" class="inline-block mt-2 underline">View on GitHub</a>
-      </div>
+        <div class="project-card scale-in">
+          <div class="project-header">
+            <h3 class="project-title">HR Analytics Dashboard</h3>
+            <div class="project-tech">
+              <span>Power BI</span>
+              <span>DAX</span>
+              <span>HR Analytics</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Interactive HR dashboard analyzing 2,800+ employee records. Features hiring trends, performance metrics, attrition analysis, and training ROI calculations using custom DAX measures and dynamic filtering.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/mohamedhosamothman/HR-Dashboard-in-Power-BI" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-users"></i>
+                View Dashboard
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="p-8 rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2 hover:scale-105 bg-white dark:bg-gray-800" aria-label="Project: Excel Sales Dashboard (USA)">
-        <h3 class="text-2xl font-semibold mb-3">Excel Sales Dashboard (USA)</h3>
-        <p class="mb-4 text-base">Dynamic sales dashboard built in Excel analyzing US sales data from 2014-2017.</p>
-        <a href="https://github.com/mohamedhosamothman/Excel_Sales_Dashboard_USA_2014-2017" target="_blank" rel="noopener" class="inline-block mt-2 underline">View on GitHub</a>
-      </div>
+        <div class="project-card scale-in">
+          <div class="project-header">
+            <h3 class="project-title">US Sales Analysis Dashboard</h3>
+            <div class="project-tech">
+              <span>Excel</span>
+              <span>Power Query</span>
+              <span>Power Pivot</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Advanced Excel dashboard analyzing 4 years of US sales data (2014-2017). Features KPIs like Net Sales, Profit Margin, Return Rate with interactive PivotTables and dynamic visualizations.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/mohamedhosamothman/Excel_Sales_Dashboard_USA_2014-2017" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-file-excel"></i>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="p-8 rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2 hover:scale-105 bg-white dark:bg-gray-800" aria-label="Project: Looker Studio Sales Dashboard">
-        <h3 class="text-2xl font-semibold mb-3">Looker Studio Sales Dashboard</h3>
-        <p class="mb-4 text-base">Custom Looker Studio report visualizing key sales metrics and trends for executive review.</p>
-        <a href="https://lookerstudio.google.com/reporting/7fc077a8-9d61-4102-88df-f5c24e98eea2" target="_blank" rel="noopener" class="inline-block mt-2 underline">View Report</a>
+        <div class="project-card scale-in">
+          <div class="project-header">
+            <h3 class="project-title">Looker Studio Sales Report</h3>
+            <div class="project-tech">
+              <span>Looker Studio</span>
+              <span>Data Visualization</span>
+              <span>Interactive Reports</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-description">
+              Interactive sales dashboard in Looker Studio with clean UI and performance KPIs. Features dynamic filtering by region, category, date ranges, and payment methods for comprehensive sales analysis.
+            </p>
+            <div class="project-links">
+              <a href="https://lookerstudio.google.com/reporting/7fc077a8-9d61-4102-88df-f5c24e98eea2" class="project-link" target="_blank">
+                <i class="fas fa-chart-bar"></i>
+                View Report
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-info-circle"></i>
+                Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience" style="background: var(--gray-50);">
+    <div class="container">
+      <h2 class="section-title gradient-text">Professional Experience</h2>
+      <p class="section-subtitle">
+        My journey in data analysis and business intelligence.
+      </p>
+      
+      <div class="timeline">
+        <div class="timeline-item fadeInLeft">
+          <div class="timeline-content">
+            <h3 class="timeline-title">Data Analyst Intern</h3>
+            <div class="timeline-company">Truvian Intelligence</div>
+            <p class="timeline-description">
+              Conducting real-world data analysis using Excel, SQL, and Power BI. Supporting business decisions through data cleaning, reporting, and visualization tasks in a remote environment.
+            </p>
+          </div>
+          <div class="timeline-date">Jul 2025 - Present</div>
+        </div>
+
+        <div class="timeline-item fadeInRight">
+          <div class="timeline-content">
+            <h3 class="timeline-title">Data Science & AI Trainee</h3>
+            <div class="timeline-company">Orange Digital Center & AMIT Learning</div>
+            <p class="timeline-description">
+              Completed intensive 4-week program (9 hours/day) covering SQL, Python (pandas, NumPy, matplotlib), and EDA. Gained foundational knowledge in supervised ML and applied data analysis to real business cases.
+            </p>
+          </div>
+          <div class="timeline-date">Dec 2024 - Jan 2025</div>
+        </div>
+
+        <div class="timeline-item fadeInLeft">
+          <div class="timeline-content">
+            <h3 class="timeline-title">Remote Data Entry Specialist</h3>
+            <div class="timeline-company">Health Insurance Sector - Saudi Arabia</div>
+            <p class="timeline-description">
+              Managed client data entry from diverse sources (PDFs, WhatsApp, handwritten documents) into structured Excel sheets. Drafted insurance letters and maintained high data accuracy standards.
+            </p>
+          </div>
+          <div class="timeline-date">Jul 2022 - Sep 2023</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="min-h-screen container mx-auto py-32 px-6 text-center text-gray-800 dark:text-gray-200" data-animate>
-    <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-8">Contact</h2>
-    <div class="space-y-4 text-xl max-w-md mx-auto">
-      <a href="mailto:mohamedhosamothman@gmail.com" class="block hover:text-blue-500" aria-label="Email">📧 mohamedhosamothman@gmail.com</a>
-      <a href="tel:+201024984060" class="block hover:text-blue-500" aria-label="Phone">📞 +20 102 498 4060</a>
-      <a href="https://github.com/mohamedhosamothman" target="_blank" rel="noopener" class="block hover:text-blue-500" aria-label="GitHub">🐙 GitHub</a>
-      <a href="https://www.linkedin.com/in/mohamed-hosam-analyst" target="_blank" rel="noopener" class="block hover:text-blue-500" aria-label="LinkedIn">💼 LinkedIn</a>
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+      <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+        Ready to transform your data into actionable insights? Let's discuss your project.
+      </p>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Email</strong><br>
+              <a href="mailto:mohamedhosamothman@gmail.com">mohamedhosamothman@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Phone</strong><br>
+              <a href="tel:+201024984060">+20 102 498 4060</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="contact-text">
+              <strong>LinkedIn</strong><br>
+              <a href="https://www.linkedin.com/in/mohamed-hosam-analyst" target="_blank">mohamed-hosam-analyst</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="contact-text">
+              <strong>GitHub</strong><br>
+              <a href="https://github.com/mohamedhosamothman" target="_blank">mohamedhosamothman</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project Discussion" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
-    <p>&copy; 2025 Mohamed Hosam Othman</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/mohamed-hosam-analyst" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/mohamedhosamothman" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:mohamedhosamothman@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="tel:+201024984060" class="social-link">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+        
+        <p>&copy; 2025 Mohamed Hosam Othman. All rights reserved.</p>
+        <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">
+          Data Analyst | Business Intelligence | Dashboard Development
+        </p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Dark Mode Persistence & System Preference
-    const body = document.getElementById('body');
-    const toggle = document.getElementById('btn-toggle');
-    const stored = localStorage.getItem('darkMode');
-    const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-    function applyTheme(isDark) {
-      if (isDark) body.classList.add('dark-mode');
-      else body.classList.remove('dark-mode');
+  <script>
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initLoader();
+      initNavigation();
+      initThemeToggle();
+      initTypewriter();
+      initParticles();
+      initScrollAnimations();
+      initBackToTop();
+      initContactForm();
+    });
+
+    // Loader
+    function initLoader() {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 1500);
     }
 
-    if (stored !== null) applyTheme(stored === 'true');
-    else applyTheme(prefers);
+    // Navigation
+    function initNavigation() {
+      const navbar = document.getElementById('navbar');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const navLinksContainer = document.getElementById('nav-links');
 
-    toggle.addEventListener('click', () => {
-      const nowDark = !body.classList.contains('dark-mode');
-      applyTheme(nowDark);
-      localStorage.setItem('darkMode', nowDark);
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        // Update active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPos = window.scrollY + 100;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (activeLink) activeLink.classList.add('active');
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+
+      // Smooth scroll for nav links
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+
+          // Close mobile menu
+          navLinksContainer.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        });
+      });
+    }
+
+    // Theme Toggle
+    function initThemeToggle() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      const icon = themeToggle.querySelector('i');
+
+      // Check for saved theme or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+      }
+    }
+
+    // Typewriter Effect
+    function initTypewriter() {
+      const typewriter = document.getElementById('typewriter');
+      const texts = [
+        'Data Analyst',
+        'Business Intelligence Expert',
+        'Dashboard Developer',
+        'SQL Specialist',
+        'Data Storyteller'
+      ];
+      
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      
+      function type() {
+        const currentText = texts[textIndex];
+        
+        if (isDeleting) {
+          typewriter.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typewriter.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        }
+        
+        let typeSpeed = isDeleting ? 100 : 150;
+        
+        if (!isDeleting && charIndex === currentText.length) {
+          typeSpeed = 2000; // Pause at end
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          typeSpeed = 500; // Pause before next text
+        }
+        
+        setTimeout(type, typeSpeed);
+      }
+      
+      type();
+    }
+
+    // Particles.js
+    function initParticles() {
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: '#ffffff',
+              opacity: 0.4,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 6,
+              direction: 'none',
+              random: false,
+              straight: false,
+              out_mode: 'out',
+              bounce: false
+            }
+          },
+          interactivity: {
+            detect_on: 'canvas',
+            events: {
+              onhover: { enable: true, mode: 'repulse' },
+              onclick: { enable: true, mode: 'push' },
+              resize: true
+            },
+            modes: {
+              grab: { distance: 400, line_linked: { opacity: 1 } },
+              bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+              repulse: { distance: 200, duration: 0.4 },
+              push: { particles_nb: 4 },
+              remove: { particles_nb: 2 }
+            }
+          },
+          retina_detect: true
+        });
+      }
+    }
+
+    // GSAP Scroll Animations
+    function initScrollAnimations() {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in up animations
+        gsap.utils.toArray('.fadeInUp').forEach(element => {
+          gsap.fromTo(element, 
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        // Fade in left animations
+        gsap.utils.toArray('.fadeInLeft').forEach(element => {
+          gsap.fromTo(element,
+            { opacity: 0, x: -50 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        // Fade in right animations
+        gsap.utils.toArray('.fadeInRight').forEach(element => {
+          gsap.fromTo(element,
+            { opacity: 0, x: 50 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        // Scale in animations
+        gsap.utils.toArray('.scale-in').forEach(element => {
+          gsap.fromTo(element,
+            { opacity: 0, scale: 0.8 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1,
+              ease: 'back.out(1.7)',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          );
+        });
+
+        // Hero animations
+        gsap.timeline()
+          .from('.hero-image', { opacity: 0, scale: 0.5, duration: 1, ease: 'back.out(1.7)' })
+          .from('.hero-title', { opacity: 0, y: 30, duration: 1, ease: 'power2.out' }, '-=0.5')
+          .from('.hero-subtitle', { opacity: 0, y: 20, duration: 1, ease: 'power2.out' }, '-=0.3')
+          .from('.btn', { opacity: 0, y: 20, duration: 0.8, stagger: 0.2, ease: 'power2.out' }, '-=0.3');
+
+        // Counter animation
+        gsap.utils.toArray('.stat-number').forEach(counter => {
+          const target = counter.textContent;
+          const isPercentage = target.includes('%');
+          const numValue = parseInt(target.replace(/\D/g, ''));
+          
+          gsap.fromTo(counter, 
+            { textContent: 0 },
+            {
+              textContent: numValue,
+              duration: 2,
+              ease: 'power2.out',
+              snap: { textContent: 1 },
+              scrollTrigger: {
+                trigger: counter,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              },
+              onUpdate: function() {
+                const current = Math.round(this.targets()[0].textContent);
+                counter.textContent = isPercentage ? current + '%' : current + '+';
+              }
+            }
+          );
+        });
+      }
+    }
+
+    // Back to Top
+    function initBackToTop() {
+      const backToTop = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Contact Form
+    function initContactForm() {
+      const form = document.getElementById('contact-form');
+      
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.name || !data.email || !data.subject || !data.message) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        // Simulate form submission
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          alert('Thank you for your message! I\'ll get back to you soon.');
+          form.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      });
+    }
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    // Add loading states for external links
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      link.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        if (icon) {
+          const originalClass = icon.className;
+          icon.className = 'fas fa-spinner fa-spin';
+          setTimeout(() => {
+            icon.className = originalClass;
+          }, 1000);
+        }
+      });
     });
 
-    // Smooth scroll + active link highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('#nav-links a');
-    function setActive() {
-      const scrollPos = window.scrollY + window.innerHeight / 3;
-      sections.forEach(sec => {
-        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-          navItems.forEach(a => a.removeAttribute('aria-current'));
-          const active = document.querySelector(`#nav-links a[href="#${sec.id}"]`);
-          if (active) active.setAttribute('aria-current', 'page');
+    // Add hover effects for cards
+    document.querySelectorAll('.card, .project-card, .skill-category').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Intersection Observer for reveal animations (fallback if GSAP not loaded)
+    if (typeof gsap === 'undefined') {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fadeInUp, .fadeInLeft, .fadeInRight, .scale-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Performance optimization: Lazy load images
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      });
+
+      document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+
+    // Add focus trap for mobile menu
+    function trapFocus(element) {
+      const focusableElements = element.querySelectorAll(
+        'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+      );
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastFocusableElement) {
+              firstFocusableElement.focus();
+              e.preventDefault();
+            }
+          }
         }
       });
     }
-    window.addEventListener('scroll', setActive);
-    document.addEventListener('DOMContentLoaded', () => {
-      setActive();
-    });
 
-    // Typewriter refined using requestAnimationFrame for smoother timing
-    const phrases = ["Data Analyst.", "Insight Creator.", "Storyteller with Data."];
-    let phraseIndex = 0, charIndex = 0;
-    let deleting = false;
-    const typeEl = document.getElementById('typewriter');
-    let delay = 150, pauseAfter = 1000;
-
-    function typeLoop(timestamp) {
-      const full = phrases[phraseIndex];
-      if (!deleting) {
-        charIndex++;
-        typeEl.textContent = full.slice(0, charIndex);
-        if (charIndex === full.length) {
-          deleting = true;
-          setTimeout(() => requestAnimationFrame(typeLoop), pauseAfter);
-          return;
-        }
-      } else {
-        charIndex--;
-        typeEl.textContent = full.slice(0, charIndex);
-        if (charIndex === 0) {
-          deleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
+    // Enhanced keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      // ESC key closes mobile menu
+      if (e.key === 'Escape') {
+        const navLinks = document.getElementById('nav-links');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
         }
       }
-      setTimeout(() => requestAnimationFrame(typeLoop), deleting ? 50 : 150);
+    });
+
+    // Add reduced motion support
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+      // Disable animations for users who prefer reduced motion
+      document.querySelectorAll('*').forEach(el => {
+        el.style.animationDuration = '0.01ms !important';
+        el.style.animationIterationCount = '1 !important';
+        el.style.transitionDuration = '0.01ms !important';
+      });
     }
-    document.addEventListener('DOMContentLoaded', () => {
-      requestAnimationFrame(typeLoop);
-    });
 
-    // GSAP animations (guard in case scripts load after)
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.gsap && window.gsap.utils) {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from("#home h1", { y: 40, opacity: 0, duration: 1, ease: "power3.out" });
-        gsap.utils.toArray("[data-animate]").forEach(sec => {
-          gsap.from(sec, {
-            scrollTrigger: { trigger: sec, start: "top 85%" },
-            y: 25, opacity: 0, duration: 0.8, ease: "power1.out"
-          });
-        });
+    // Error handling for external resources
+    window.addEventListener('error', (e) => {
+      if (e.target.tagName === 'SCRIPT') {
+        console.warn('External script failed to load:', e.target.src);
+        // Fallback functionality can be added here
       }
     });
 
-    // Lottie with fallback
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.getElementById('lottie-hero');
-      if (window.lottie) {
-        lottie.loadAnimation({
-          container,
-          path: 'https://assets9.lottiefiles.com/packages/lf20_tzmg2z3d.json',
-          renderer: 'svg',
-          loop: true,
-          autoplay: true
-        });
-      } else {
-        // fallback: simple static svg or hidden if Lottie fails
-        container.innerHTML = '<div aria-label="Animation" style="font-size:.75rem; opacity:.7;">📈</div>';
+    // Performance monitoring
+    window.addEventListener('load', () => {
+      if ('performance' in window) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page loaded in ${(loadTime / 1000).toFixed(2)} seconds`);
       }
     });
   </script>
