@@ -2594,60 +2594,188 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title fade-in-up">
-                <i class="fas fa-envelope"></i>
-                Contact
-            </h2>
-            <p class="section-subtitle fade-in-up">
-                Let's connect and discuss how we can work together to transform your data into actionable insights.
-            </p>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Section</title>
 
-            <div class="contact-grid">
-                <a class="contact-link" href="mailto:mohamedhosamothman@gmail.com" target="_blank">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>mohamedhosamothman@gmail.com</p>
-                    </div>
-                </a>
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
 
-                <a class="contact-link" href="https://www.linkedin.com/in/mohamed-hosam-analyst/" target="_blank">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <h3>LinkedIn</h3>
-                        <p>mohamed-hosam-analyst</p>
-                    </div>
-                </a>
+  <!-- Google Font (Optional for better typography) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-                <a class="contact-link" href="tel:+201024984060">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3>Phone</h3>
-                        <p>+20 1024984060</p>
-                    </div>
-                </a>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --card-bg: #f8fafc;
+      --card-hover: #e2e8f0;
+      --icon-color: #3b82f6;
+      --link-color: #2563eb;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
 
-                <a class="contact-link" href="https://github.com/mohamedhosamothman" target="_blank">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <h3>GitHub</h3>
-                        <p>mohamedhosamothman</p>
-                    </div>
-                </a>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0f172a;
+        --text-color: #f1f5f9;
+        --card-bg: #1e293b;
+        --card-hover: #334155;
+        --icon-color: #60a5fa;
+        --link-color: #60a5fa;
+        --shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+      }
+
+      .contact-card:hover {
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .contact {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-link {
+      text-decoration: none;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      padding: 1.8rem 1.2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      height: 100%;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      background-color: var(--card-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--icon-color);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card p {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      margin: 0;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fas fa-envelope"></i>
+        Contact
+      </h2>
+      <p class="section-subtitle">
+        Let's connect and discuss how we can work together to transform your data into actionable insights.
+      </p>
+
+      <div class="contact-grid">
+        <a class="contact-link" href="mailto:mohamedhosamothman@gmail.com" target="_blank">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
             </div>
-        </div>
-    </section>
+            <h3>Email</h3>
+            <p>mohamedhosamothman@gmail.com</p>
+          </div>
+        </a>
+
+        <a class="contact-link" href="https://www.linkedin.com/in/mohamed-hosam-analyst/" target="_blank">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <h3>LinkedIn</h3>
+            <p>mohamed-hosam-analyst</p>
+          </div>
+        </a>
+
+        <a class="contact-link" href="tel:+201024984060">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Phone</h3>
+            <p>+20 1024984060</p>
+          </div>
+        </a>
+
+        <a class="contact-link" href="https://github.com/mohamedhosamothman" target="_blank">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <h3>GitHub</h3>
+            <p>mohamedhosamothman</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -3546,3 +3674,4 @@
     </script>
 </body>
 </html>
+
