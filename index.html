@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohamed Hosam Othman | Data Analyst</title>
+  <title>Mohamed Hosam | Data Analyst</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
+  <!-- Decorative Background Shapes -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
@@ -20,6 +22,11 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-adjust"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
@@ -28,63 +35,65 @@
   <header class="hero-section">
     <div class="container text-center">
       <h2 class="typewriter">Hi, I'm Mohamed Hosam</h2>
-      <p class="section-subtitle">Data Analyst | Dashboard Expert | SQL & BI Tools</p>
-      <a href="#contact" class="btn btn-primary">Let's Connect</a>
+      <p class="section-subtitle">Data Analyst | BI Developer | SQL Expert</p>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </div>
   </header>
 
   <!-- About Section -->
   <section class="section" id="about">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">About Me</h2>
-      <p>
-        I’m a passionate Data Analyst with experience in business intelligence and data storytelling. I build dashboards and reports that turn complex data into clear insights using Power BI, SQL Server, Excel, and Looker Studio.
-      </p>
+      <p>I’m a passionate Data Analyst with expertise in Power BI, SQL, and data visualization. I help businesses make data-driven decisions by building dashboards and insightful reports.</p>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section class="section section-alt" id="projects">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title"><i class="fas fa-project-diagram"></i> Featured Projects</h2>
-      <ul class="card-list">
-        <li class="card">
+      <div class="card-list">
+        <div class="card">
           <h3>HR Analytics Dashboard</h3>
-          <p>Built with Power BI and DAX to analyze key HR metrics.</p>
-        </li>
-        <li class="card">
+          <p>Power BI + DAX dashboard for HR metrics.</p>
+          <a href="https://github.com/mohamedhosamothman/hr-analytics-dashboard" target="_blank">View</a>
+        </div>
+        <div class="card">
           <h3>Pixar Films SQL Analysis</h3>
-          <p>SQL Server project analyzing trends in Pixar movies.</p>
-        </li>
-        <li class="card">
+          <p>SQL Server project analyzing Pixar movies.</p>
+          <a href="https://github.com/mohamedhosamothman/pixar-films-sql-analysis" target="_blank">View</a>
+        </div>
+        <div class="card">
           <h3>Branch Services Dashboard</h3>
-          <p>Interactive dashboard to monitor branch performance.</p>
-        </li>
-        <li class="card">
+          <p>Branch performance using Power BI.</p>
+          <a href="https://github.com/mohamedhosamothman/branch-services-dashboard" target="_blank">View</a>
+        </div>
+        <div class="card">
           <h3>Excel Sales Dashboard</h3>
-          <p>Created with Pivot Tables and Power Query.</p>
-        </li>
-        <li class="card">
-          <h3>Looker Studio Sales Report</h3>
-          <p>Google Looker Studio dashboard for sales KPIs.</p>
-        </li>
-      </ul>
+          <p>Power Query + Pivot Table dashboard.</p>
+          <a href="https://github.com/mohamedhosamothman/excel-sales-dashboard" target="_blank">View</a>
+        </div>
+        <div class="card">
+          <h3>Looker Studio Report</h3>
+          <p>Sales KPIs in Google Looker Studio.</p>
+          <a href="https://github.com/mohamedhosamothman/looker-studio-sales-report" target="_blank">View</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Certificates Section -->
   <section class="section" id="certificates">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title">Certificates</h2>
-      <p>Coming Soon: Certificates from Google, Udacity, Coursera, and more!</p>
+      <p>Coming Soon: Google, Coursera, Udacity & more.</p>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="section section-alt" id="contact">
-    <div class="container">
+    <div class="container fade-in">
       <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Contact</h2>
-      <p>Let’s connect! Feel free to reach out through any of the platforms below.</p>
       <ul class="contact-links">
         <li>Email: <a href="mailto:mohamedhosamothman@gmail.com">mohamedhosamothman@gmail.com</a></li>
         <li>Phone: <a href="tel:+201024984060">+20 1024984060</a></li>
@@ -94,13 +103,19 @@
     </div>
   </section>
 
-  <footer class="section">
-    <div class="container text-center">
+  <!-- Footer -->
+  <footer class="section text-center">
+    <div class="container">
       <p>&copy; 2025 Mohamed Hosam. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Font Awesome for Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const theme = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", theme === "dark" ? "light" : "dark");
+    }
+  </script>
 </body>
 </html>
