@@ -2594,53 +2594,29 @@
         </div>
     </section>
 
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Section</title>
-
-  <!-- Font Awesome for Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  />
-
-  <!-- Google Font (Optional for better typography) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-color: #1f2937;
-      --card-bg: #f8fafc;
-      --card-hover: #e2e8f0;
-      --icon-color: #3b82f6;
-      --link-color: #2563eb;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #0f172a;
-        --text-color: #f1f5f9;
-        --card-bg: #1e293b;
-        --card-hover: #334155;
-        --icon-color: #60a5fa;
-        --link-color: #60a5fa;
-        --shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
-      }
-
-      .contact-card:hover {
-        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
-      }
+      --bg-color: #0f172a;
+      --text-color: #f1f5f9;
+      --card-bg: #1e293b;
+      --card-hover: #334155;
+      --icon-color: #38bdf8;
+      --link-color: #0ea5e9;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
     }
@@ -2648,10 +2624,11 @@
     .contact {
       padding: 4rem 1rem;
       text-align: center;
+      background-color: var(--bg-color);
     }
 
     .section-title {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 1rem;
       color: var(--text-color);
@@ -2660,22 +2637,24 @@
     .section-subtitle {
       font-size: 1rem;
       color: var(--text-color);
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0.8;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
     .contact-link {
       text-decoration: none;
+      color: inherit;
     }
 
     .contact-card {
@@ -2688,12 +2667,13 @@
       text-align: center;
       cursor: pointer;
       height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .contact-card:hover {
       transform: translateY(-6px);
       background-color: var(--card-hover);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .contact-icon {
@@ -2713,6 +2693,7 @@
       color: var(--text-color);
       margin: 0;
       word-break: break-word;
+      opacity: 0.85;
     }
   </style>
 </head>
@@ -2721,11 +2702,11 @@
   <!-- Contact Section -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2 class="section-title">
+      <h2 class="section-title fade-in-up">
         <i class="fas fa-envelope"></i>
         Contact
       </h2>
-      <p class="section-subtitle">
+      <p class="section-subtitle fade-in-up">
         Let's connect and discuss how we can work together to transform your data into actionable insights.
       </p>
 
@@ -3674,4 +3655,5 @@
     </script>
 </body>
 </html>
+
 
